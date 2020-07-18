@@ -30,9 +30,9 @@ show tables;
 insert into salespeople value (1001,'Peel','London',.12);
 select *from salespeople;
 insert into salespeople value (1002,'Serres','San Jose',.13);
-insert into salespeople value (1003,'Motika','London',.11);
-insert into salespeople value (1004,'Rifkin','Barcelona',.15);
-insert into salespeople value (1005,'Axelrod','New York',.10);
+insert into salespeople value (1004,'Motika','London',.11);
+insert into salespeople value (1007,'Rifkin','Barcelona',.15);
+insert into salespeople value (1003,'Axelrod','New York',.10);
 select *from salespeople;
 
 
