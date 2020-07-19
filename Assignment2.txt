@@ -1,0 +1,27 @@
+﻿Assignment –2  Introducing Relational Databases.
+
+1) Which field of the Customers table is the primary key?
+Cnum
+
+
+2) What is the 4th column of the Customers table?
+Rating
+
+
+3) What is another word for row? For column?
+Row=Tuples, Entity and Oppurtinity
+
+Table= Columns, Attributes and Methods
+
+
+4) Why isn’t it possible to see the first five rows of a table?
+   * In RDBMS, Table is not a file every row is a file.
+   * Rows of a table is not stored sequentially.
+   * Rows of a table Scattered.
+   * When you insert into table wherever the system finds free space
+     in DataBase Hardisk it will store the row there.
+   * When you update a row if the row lengh is increasing then the 
+     entire row may be moved to some other address.
+   * Later when you select from the table you will find the entire 
+     row at some other position.(only in case of Varchar)
+   * Hence it is not possible to see first or last 'N' rows of table.
