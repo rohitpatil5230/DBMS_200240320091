@@ -64,6 +64,11 @@ create table SPJ
 Qty int(4)
 );
 
+insert into spj value ('s1','p1','j1',10);
+insert into spj value ('s2','p2','j2',20);
+insert into spj value ('s3','p3','j3',30);
+select * from spj;
+
 insert into s value ('S1','Rohit',10,'Paris');
 select *from s;
 insert into s value ('S2','Omkar',20,'London');
