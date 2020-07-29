@@ -1,0 +1,35 @@
+/*Assignment – 18 Maintaining the Integrity of your Data.*/
+select *from salespeople;
+select *from customers;
+select *from orders;
+select * from multicust;
+/*1) Create a table called Cityorders. This will contain the same onum, amt and snum
+fields as the Orders table, and the same cnum and city fields as the Customers
+table, so that each customer’s order will be entered into this table along with his
+or her city. Onum will be the primary key of Cityorders. All of the fields in
+Cityorders will be constrained to match the Customers and Orders tables. Assume
+the parent keys in these tables already have the proper constraints.*/
+
+create table cityorders
+(
+onum int(4) primary key,
+amt float(4,2),
+snum int(4),
+cnum int(4),
+city char(15),
+constraint cnum_fk foreign key(cnum) references customers(cnum),
+constraint snum_fk foreign key(snum) references orders(snum)
+);
+alter table customers add primary key (cnum);
+alter table orders add primary key (snum);
+
+
+/*2) Redefine the Orders table as follows:- add a new column called prev, which will
+identify, for each order, the onum of the previous order for that current customer.
+Implement this with a foreign key referring to the Orders table itself. The foreign
+key should refer as well to the cnum of the customer, providing a definite
+enforced link between the current order and the one referenced.*/
+
+alter table orders add prev int(4);
+alter table orders add constraint prev_fk foreign key(prev) references orders(onum);
+alter table orders add constraint cnum2_fk foreign key(cnum) references customer(cnum);
