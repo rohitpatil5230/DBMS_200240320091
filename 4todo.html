@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html,body{
+            margin: 0;
+        }
+    </style>
+    <script>
+        const t=document.querySelector("#referenceiteam");
+        function additeam(){
+            let inele=document.querySelector("#inbox").value;
+            const addele=document.querySelector("#referenceiteam").cloneNode(true);
+            addele.style.visibility="visible";
+            addele.children[0].innerHTML=inele;
+
+            const boxele=document.querySelector("#iteambox");
+            boxele.insertBefore(addele,boxele.firstChild);
+
+            document.querySelector("#inbox").value="";
+        }
+
+        function butdelete(deleteele){
+            deleteele.parentElement.parentElement.remove();
+        }
+        function butedit(editele){
+            let ele=editele.parentElement.parentElement.children[0].innerHTML;
+            
+            document.querySelector("#inbox").value=ele;
+            editele.parentElement.parentElement.remove();
+        }
+
+        function butselect(selectele){
+            let ele1=selectele.parentElement.parentElement.children[0].innerHTML;
+            selectele.parentElement.parentElement.children[0].innerHTML=("<del>"+ele1+"</del>");
+            
+        }
+        function butclear(){
+            document.querySelector("#iteambox").style.display="none";
+            //document.querySelector("#iteambox").children[0].children[1].style.display="none";
+        }
+
+       /* function butclear(){
+            
+            
+            document.querySelector("#referenceiteam").children[0].remove();
+
+            document.querySelector("#iteambox").innerHTML=t;
+        }*/
+
+       /* function butclear(){
+            const clearele=document.querySelector("#iteambox").cloneNode(true);
+            alert(clearele);
+            clearele.style.display="none";
+            alert(clearele);
+        }*/
+    </script>
+</head>
+<body>
+    <div style="display: flex;flex-direction: column;margin: auto;border: 1px solid black;margin: 5% 35% 0 35%;">
+        <div style="display: flex;justify-content: center;font-size: 35px;margin-bottom: 20px;">
+            To Do List
+        </div>
+        <div style="flex: 1;display: flex;justify-content: center;margin-bottom: 30px;">
+            <input id="inbox" type="text" placeholder="Name..">
+            <button id="add" onclick="additeam()">Add Iteam</button>
+        </div>
+        <div id="iteambox">
+            <div id="referenceiteam" style="visibility: hidden;justify-content: space-between;display: flex;">
+                <div style="margin-left: 10px;">
+                    add iteam
+                </div>
+                <div style="display: flex;">
+                    <button onclick="butselect(this)"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button>
+                    <button onclick="butedit(this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    <button onclick="butdelete(this)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </div>
+             </div>
+             
+        </div>
+      <div style="flex: 1;display: flex;justify-content:center;">
+            <button style="margin-bottom: 20px;" onclick="butclear()">Clear Iteam</button>
+        </div>
+
+    </div>
+</body>
+</html>
