@@ -1,0 +1,273 @@
+1. Write a script to create 10 directories, say a1,a2,...,a10
+Report error if a directory/file exists with the same name.
+
+for((i=1;$i<=10;i++))
+do
+        mkdir a$i;
+done
+
+2. Write a menu based script to perform following string operations
+a) To find length of a string
+c) Copying string
+d) Concatenation of strings
+e) Compare two strings
+f) Reversing a string
+
+echo "enter the string"
+read str1
+flag=true
+while($flag)
+do
+        echo "1.Find lenght"
+        echo "2.copy string"
+        echo "3.concat string "
+        echo "4.compare two string"
+        echo "5.Revers string"
+        read option
+        case $option in
+                1)len=${#str1}
+                        echo $len
+                        echo "one";;
+                2)str2=$str1
+                        echo $str2
+                        echo "two";;
+                3)str2=hello
+                        echo $str1$str2
+                        echo "three";;
+                4) str2=rohit1
+                if [ $str1 = $str2 ];
+                then
+                        echo "equal"
+                else
+                        echo "not equal"
+                fi
+
+                        echo "four";;
+                5)echo $str1 | rev
+                        echo "five";;
+                *) flag=false;;
+        esac
+
+
+3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
+	
+for((i=1;i<=10;i++))
+do
+        mv a$i b$i
+done
+
+4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+echo "HOME = "$HOME
+echo "PATH = "$PATH
+echo "SHELL = "$SHELL
+echo "HISTORY = "$HISTORY
+echo "LOGNAME = "$LOGNAME
+echo "TERM = "$TERM
+
+
+5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+x=`ls -la | cut -b -12`
+echo $x
+
+6. Write a shell script to print all files permissions and name of file
+
+7.Write a shell script to print all files name and size greater than 5K
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Write a script To check given year is leap or not.
+echo ener year
+read year
+if (($year%4==0))
+then
+        echo leap year
+else
+        echo not leap year
+fi
+
+
+2. Write a script to print day of the week using
+	a) elif	b) case 
+echo 'Enter the no of Day : '
+read day
+if [ $day == 1 ]
+then
+        echo 'Sunday'
+elif [ $day == 2 ]
+then
+        echo 'Monday'
+elif [ $day == 3 ]
+then
+        echo 'Tuesday'
+elif [ $day == 4 ]
+then
+        echo 'Wensday'
+elif [ $day == 5 ]
+then
+        echo 'Thrusday'
+elif [ $day == 6 ]
+then
+        echo 'Friday'
+elif [ $day == 7 ]
+then
+        echo 'Saturday'
+else
+        echo 'Invalid Enty'
+fi
+
+
+
+echo "enter a number"
+read n
+case $n in
+        1) echo "Sunday" ;;
+        2) echo "Monday" ;;
+        3) echo "Tuesday" ;;
+        4) echo "Wednesday" ;;
+        5) echo "Thursday" ;;
+        6) echo "Friday" ;;                                                                                                     7) echo "Saturday" ;;                                                                                                   *) echo "enter value between 1 to 7" ;;
+esac 
+
+
+3. a) Write a script to find biggest of three no.s
+echo enter 1st no
+read num1
+echo enter 2nd no
+read num2
+echo enter 3rd no
+read num3
+if(($num1 > $num2 && $num1>$num3))
+then
+        echo $num1
+elif(($num2>$num1 && $num2>$num3))
+then
+        echo $num2
+else
+        echo $num3
+fi
+
+   b) To find avg of 3 no.s, read no.s from keyboard
+echo enter 1st no
+read num1
+echo enter 2nd no
+read num2
+echo enter 3rd no
+read num3
+sum=$((num1+num2+num3))
+avg=$((sum/3))
+echo $avg
+
+4. Write a program to check wahether given no.is even or odd
+echo 'Enter a number : '
+read num
+if (( num%2 == 0 ))
+then 
+	echo $num 'is Even.'
+else
+	echo $num 'is Odd.'
+fi
+
+5. Write a program to print calendar of current month in next year,previous years.
+	For eg:-sep 2014,sep 2012 if current month is sep 2013	
+6. Write a program to find sum and product of two no.s using 
+	a) let 
+	b)expr
+	c)bc	
+echo 'Enter num1 : '
+read num1
+echo 'Enter num2 : '
+read num2
+let "prodlet=num1*num2"
+prodExp=$(expr $num1 \* $num2)
+echo 'Let : '
+echo $prodlet 
+echo 'Expr : '
+echo $prodExp
+echo 'BC : '
+echo $num1 \* $num2 | bc
+
+7. Write a script to generate Fibonacci series.
+echo "Enter the number of terms";
+read N
+   
+a=0    
+b=1  
+      
+for (( i=0; i<N; i++ )) 
+do
+    echo -n "$a "
+    fn=$((a + b)) 
+    a=$b 
+    b=$fn 
+done
+8. Write a shell script to reverse the single strings. 
+echo 'Enter a string : '
+read str
+rev=""
+len=${#str}
+for (( i=$len; i>0; i-- ))
+do
+	temp=$(expr $str | cut -c $i)
+	rev=$rev$temp
+done
+echo $rev
+
+or
+
+echo "Enter The String"
+read str
+echo $str | rev
+
+9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+echo 'Enter array of Strings : '
+read -a arr
+min=0
+max=`expr ${#arr[@]} - 1`
+x=$max
+while (( $min <= $max ))
+do
+	newArr[$min]=${arr[$max]}
+	newArr[$max]=${arr[$min]}
+	(( min++ ))
+	(( max-- ))
+done
+max=$x
+for (( i=0; i<=max; i++ ))
+do
+	rev=""
+	str=${newArr[$i]}
+	let "len=${#str} -1"
+	for (( j=$len; j>=0; j-- ))
+		do
+			rev="$rev${str:$j:1}"
+		done
+	newArr[$i]=$rev
+done
+echo ${newArr[@]}
+10. Write a shell script to print the reverse of an input number.
+echo "Enter a number: "
+read num
+echo $num | rev
+
+
+
+
+
+
+
+
+
+
+
