@@ -1,0 +1,62 @@
+1.	Parent and child process 
+Write a C/CPP program to create a child process. Child should print its pid and its parent’s pid and should exit by printing message as “Child Exiting …”. Parent should print its pid and should exit by printing message as “Parent Exiting ..”. 
+(Hint(functions to be used) : getpid, fork, getppid) 
+
+#include<unistd.h>
+#include<stdlib.h>
+#include<iostream>
+#include<sys/types.h>
+using namespace std;
+
+int main()
+{
+     
+       pid_t pid;
+        pid=fork();
+
+        if(pid==0)
+        {
+                //child process
+          
+                cout<<"pid of child process----"<<getpid();
+                cout<<endl;
+                cout<<"ppid of child process----"<<getppid();
+                cout<<endl;
+        }
+        else if(pid>0)
+        {
+                //parent process        
+   
+                cout<<"pid of parent process----"<<getpid();
+                cout<<endl;
+                cout<<"ppid of parent process----"<<getppid();
+                cout<<endl;
+        }
+        else
+        {
+                cout<<"fork failed";
+        }
+        return 0;
+}
+
+
+2.	Scheduling functions 
+Write a program in C/CPP to check the scheduling policy used by the process and its priority. 
+	(Hint(functions to be used) : sched_getscheduler, getpid) 
+
+3.	Scheduling functions 
+Write a program in C/CPP to get the current scheduling policy of the process. The program should change the scheduling policy to the other than current one. Program should report errors if it fails to set the new scheduling policy. 
+	(Hint(functions to be used) : sched_setscheduler, getpid) 
+
+
+4.	Scheduling algorithm 
+Write a program in C/CPP to take process name, its arrival time and execution/burst time as input. 
+	Use FCFS(non-preemptive) algorithm to calculate wait time of each process, average 
+wait time, turnaround time of each process and average turnaround time. 
+	Calculation of time will start from the arrival time of first process.
+execution/burst time - Time required for execution of process
+	Wait time of process = response time of process - arrival time process
+	Response time of process : time at which process is scheduled to run
+	Average wait time = (sum of wait time of each process) / (number of processes) 
+	Turnaround time of process = (finish/completion time of process) - (arrival time of process)
+	Average turnaround time = (sum of turnaround time of each process) / (number of processes) 
