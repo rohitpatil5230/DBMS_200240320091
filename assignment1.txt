@@ -1,0 +1,230 @@
+Q1. Explore the following commands with various options, refer man pages for 
+    further help a) date b) cal c) bc d) echo e) who f) whoami g) logname g) uname h)
+    seq i) clear
+=>
+       a) $ date
+  	 $ date +"%A"
+	 $ date +"%a"
+	 $ date +"%b"
+	 $ date +"%B"
+	 $ date +"%c"
+	 $ date +"%C"
+	 $ date +"%h"
+	 ~$ date +"%y"
+	 $ date +"%Y"
+	 $ date +"%H"
+	 ~$ date +"%h"
+	 ~$ date +"%M"
+          $ date +"%m"
+	b) $ cal 9 2020
+	    $ cal
+	c)$ echo "12+5" | bc	
+	d) echo hello
+	e) who=show who is logged on
+	f) whoami=username show
+	g)print system information like linux
+	h)seq 2 5 100
+	i)clear ternimal screen 
+
+Q2.	A) Create three directory a b and c and create a.txt,b.txt and c.txt
+		in each directory respectively and then copy c directory into the a.
+=>	$ mkdir a b c
+	$ touch a.txt b.txt c.txt
+	$ cp -r c a
+	
+	B)Move Directory b to c.
+	$ mv b c
+
+	C)Create alias of ls -lh command to your name.
+	$ alias cdac="ls -lh"
+	$ unalias cdac
+	
+	D)Change Directory name a to cdac.
+	$ mv a cdac
+
+
+Q3. A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    file5.txt with some text inside it. Search for 's' character
+    inside all the files using grep command.
+    Also Use cat to view all file content together.
+=>
+	$ cat > file1.txt
+	$ cat > file2.txt
+	$ cat > file3.txt
+	$ cat > file4.txt
+	$ cat > file5.txt
+	$ grep "s" file1.txt file2.txt file3.txt file4.txt file5.txt
+
+	B)Create file.txt using cat and edit that using nano editor.
+
+	c)Create 5 empty files using touch command
+	touch file6.txt file7.txt file8.txt file9.txt file10.txt
+
+	D)Remove previously created directory a , b and c.
+	$ rm -r cdac c
+
+
+Q4. Create a file with some content using vi editor
+	a) Display the file using cat command
+	$ cat file7
+	b) Display line numbers along with content
+	$ cat -n file7
+	c) Display the file in reverse order using tac
+	$ tac file1.txt
+	d) Combine multiple files using cat command
+	cat >> file1.txt file2.txt
+
+Q5. Create Random some files and sub directories.
+	a) display files row wise, column wise, 1 per row
+		$ ls -1
+	b) sort the files in ascending, descending order
+		$ sort file1.txt
+		$ sort -r file1.txt
+	c) Create some hidden files and sub directories and display them using “ls -a”
+		$ touch .abc.txt
+		$ mkdir .abc
+	d) Change time stamp of some files and directories using touch command and display the files using ls -t ls -rt
+
+	e) Recursive display contents of your home directory. 
+		$ ls -r
+	f) display all attributes of files and directories using ls -l
+	        total 0
+	        -rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 11:45 a.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 11:45 b.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 11:45 c.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 12:29 file
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 12:29 file.txt
+		-rw-r--r-- 1 rohit5230 rohit5230 18 Sep 12 12:57 file1.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 12:36 file10.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  6 Sep 12 12:20 file2.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  6 Sep 12 12:21 file3.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  6 Sep 12 12:21 file4.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  7 Sep 12 12:21 file5.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 12:36 file6.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 12:36 file7.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 12:36 file8.txt
+		-rw-r--r-- 1 rohit5230 rohit5230  0 Sep 12 12:36 file9.txt
+	g) display attributes of a directory using ls -ld
+	 	 drwxr-xr-x 1 rohit5230 rohit5230 512 Sep 12 13:20
+
+**********************************************************************************************************
+
+Q1. Create directory of your name and then create 4 files inside it named
+	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+	only user and also files permission to only user such that
+
+=>	$ mkdir rohit
+	$ cd rohit
+	$ touch a.txt b.txt c.txt d.sh
+	$ chmod 7 rohit
+
+		a)user can read and write the file a.txt and b.txt
+			$ chmod u+rw a.txt b.txt
+		b)user can write the file c.txt
+			$ chmod u+w c.txt
+		c)user can exectuable the file d.sh. Make
+			Contents of file d.sh:
+			#/bin/sh
+			ls -lh
+				$chmod u+x d.sh
+
+
+Q2. Change the permission of the previous directory to executable only.
+	Analyze the output.
+		$ chmod u+x rohit
+Q3. Change the permission of the previous directory to read only.
+	Analyze the output.
+		$ chmod u+r rohit
+Q4. Use echo to list the all files of your home directory.
+		$ echo *
+Q5. Use echo to list the all files of /etc/ directory
+		$ echo */*
+Q6. Use echo to list the all files of /etc/ directory with extension name .conf
+		$ echo *.conf
+Q7. Use echo to append your name to a.txt
+		$ echo "rohit" >>file.txt
+
+
+
+
+
+
+
+Note:Many operation might not work.Analyze them
+1.	Create Three level nested directory a,b and c
+		$ mkdir -p  a/b/c
+a)Create at least one hidden file in each directory
+		1$ touch a/.file11.txt a/b/.file21.txt a/b/c/.file31.txt
+b)Create at least one normal text file in each directory
+		$ touch a/file1.txt a/b/file2.txt a/b/c/file3.txt
+c)Copy c into a
+		$ cp -r a/b/c a
+d)Copy file inside a into b
+		$ cp a/*.txt a/b
+		
+
+2.	Change the third level directory c permission to read only
+		$ chmod +r a//b/c
+3.	Try copying third level c directory to outside of a
+		$ cp -r a/b/c ./
+		
+4.	Create the directory  “data“ inside b
+		$ mkdir a/b/data
+		
+5.	Change the permission of b to read and write only
+		$ chmod +rw a/b
+		
+6.	Create directory “data2”  inside b
+		$ mkdir a/b/data
+7.	Create data.txt file inside b
+		$ touch a/b/data.txt
+8.	Rename the second level directory c to copied_dir
+		$ mv a/c copied_dir
+9.	Change permission of copied_dir to only executable
+		$ chmod +x a/b/copied_dir
+10.	Try ls on copied_dir
+		$ ls
+		file3.txt
+11.	Try moving copied_dir to outside of a
+		$ mv ./a/copied_dir ./
+12.	Try moving data directory outside of a
+		$ mv ./a/data ./
+13.	Now change the owner of the directory a to root
+		$ chown a root
+14.	Change permission of a to read write and executable to only user
+		$ chmod u+rwx a
+15.	Try creating directory sample inside a
+		$ mkdir a/sample
+16.	Create directory x outside a
+		mkdir x
+17.	Try moving x inside a
+		$ mv x a
+18.	Create directory movies
+		$ mkdir movie
+19.	Change group of movies to sudo
+		$ sudo addgroup movie
+20.	Change group of movies to avahi
+21.	Try changing permission after changing ownership to root
+22.	Try Changing permission after changing group to sudo without sudo
+23.	Try Changing owner and group both to root
+		$ sudo usermod -aG sudo newuser
+24.	Try changinging permission
+		$ sudo usermod -aG sudo newuser
+25.	Try deleting the file
+		$ rm -rf text.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
